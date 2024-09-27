@@ -33,9 +33,6 @@
                     <a class="link link-primary text-sm" href="{{ route('register') }}">
                         {{ __('Registra-se') }}
                     </a>
-                    <a class="link link-primary text-sm" href="{{ route('password.request') }}">
-                        {{ __('Esqueceu sua senha?') }}
-                    </a>
 
                 @endif
                 

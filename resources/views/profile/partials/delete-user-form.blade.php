@@ -1,55 +1,50 @@
-<section class="space-y-6">
+<section>
     <header>
+
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('Excluir conta') }}
+            {{ __('Atualizar Senha') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __('Depois que sua conta for excluída, todos os seus recursos e dados serão excluídos permanentemente. Antes de excluir sua conta, baixe todos os dados ou informações que deseja reter.') }}
+            {{ __('Certifique-se de que sua conta esteja usando uma senha longa e aleatória para permanecer segura. Certifique-se de que sua conta esteja usando uma senha longa e aleatória para permanecer segura.') }}
         </p>
     </header>
 
-    <x-danger-button
-        x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
-    >{{ __('Excluir') }}</x-danger-button>
+    <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
+        @csrf
+        @method('put')
 
-    <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
-        <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
-            @csrf
-            @method('delete')
 
-            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                {{ __('Tem certeza de que deseja excluir sua conta?') }}
-            </h2>
+        <div>
+            <x-input-label for="update_password_current_password" :value="__('Senha atual')" />
+            <x-text-input id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
+            <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
+        </div>
 
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                {{ __('Depois que sua conta for excluída, todos os seus recursos e dados serão excluídos permanentemente. Digite sua senha para confirmar que deseja excluir permanentemente sua conta.') }}
-            </p>
+        <div>
+            <x-input-label for="update_password_password" :value="__('Nova senha')" />
+            <x-text-input id="update_password_password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
+            <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
+        </div>
 
-            <div class="mt-6">
-                <x-input-label for="password" value="{{ __('Password') }}" class="sr-only" />
+        <div>
+            <x-input-label for="update_password_password_confirmation" :value="__('Confirma senha')" />
+            <x-text-input id="update_password_password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
+            <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
+        </div>
 
-                <x-text-input
-                    id="password"
-                    name="password"
-                    type="password"
-                    class="mt-1 block w-3/4"
-                    placeholder="{{ __('Password') }}"
-                />
+        <div class="flex items-center gap-4">
+            <x-primary-button>{{ __('Salvar') }}</x-primary-button>
 
-                <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
-            </div>
-
-            <div class="mt-6 flex justify-end">
-                <x-secondary-button x-on:click="$dispatch('close')">
-                    {{ __('Cancelar') }}
-                </x-secondary-button>
-
-                <x-danger-button class="ms-3">
-                    {{ __('Excluir') }}
-                </x-danger-button>
-            </div>
-        </form>
-    </x-modal>
+            @if (session('status') === 'password-updated')
+                <p
+                    x-data="{ show: true }"
+                    x-show="show"
+                    x-transition
+                    x-init="setTimeout(() => show = false, 2000)"
+                    class="text-sm text-gray-600 dark:text-gray-400"
+                >{{ __('Saved.') }}</p>
+            @endif
+        </div>
+    </form>
 </section>
