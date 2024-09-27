@@ -65,25 +65,25 @@ final class GuardiaoTable extends PowerGridComponent
     }
 
     #[\Livewire\Attributes\On('view')]
-    public function view($produtoId): void
+    public function view($guardiaoId): void
     {
-        $this->redirect("produtos/$produtoId", navigate: true);
+        $this->redirect("guardiaos/$guardiaoId", navigate: true);
     }
 
     #[\Livewire\Attributes\On('edit')]
-    public function edit($produtoId): void
+    public function edit($guardiaoId): void
     {
-        $this->redirect("produtos/$produtoId/edit", navigate: true);
+        $this->redirect("guardiaos/$guardiaoId/edit", navigate: true);
     }
 
     #[\Livewire\Attributes\On('delete')]
-    public function delete($produtoId): void
+    public function delete($guardiaoId): void
     {
-        Guardiao::destroy($produtoId);
+        Guardiao::destroy($guardiaoId);
 
         $this->success(
-            title: 'Produto excluído!',
-            description: 'O produto foi excluído com sucesso.',
+            title: 'guardiao excluído!',
+            description: 'O guardiao foi excluído com sucesso.',
         );
     }
 
@@ -94,40 +94,40 @@ final class GuardiaoTable extends PowerGridComponent
 
         if (count($checkedValues) === 0) {
             $this->warning(
-                title: 'Nenhum produto selecionado!',
-                description: 'Nenhum produto foi selecionado',
+                title: 'Nenhum guardiao selecionado!',
+                description: 'Nenhum guardiao foi selecionado',
             );
         } else {
-            $produtosIds = array_values($checkedValues);
+            $guardiaosIds = array_values($checkedValues);
 
-            Guardiao::destroy($produtosIds);
+            Guardiao::destroy($guardiaosIds);
 
             $this->success(
-                title: 'Produtos excluídos!',
-                description: 'Os produtos foram excluídos com sucesso.',
+                title: 'guardiaos excluídos!',
+                description: 'Os guardiaos foram excluídos com sucesso.',
             );
         }
     }
 
     #[\Livewire\Attributes\On('restore')]
-    public function restore($produtoId): void
+    public function restore($guardiaoId): void
     {
-        Guardiao::withTrashed()->find($produtoId)->restore();
+        Guardiao::withTrashed()->find($guardiaoId)->restore();
 
             $this->success(
-                title: 'Produto restaurado!',
-                description: 'O Produto foi restaurado com sucesso.',
+                title: 'guardiao restaurado!',
+                description: 'O guardiao foi restaurado com sucesso.',
             );
     }
 
     #[\Livewire\Attributes\On('force-delete')]
-    public function forceDelete($produtoId): void
+    public function forceDelete($guardiaoId): void
     {
-        Guardiao::withTrashed()->find($produtoId)->forceDelete();
+        Guardiao::withTrashed()->find($guardiaoId)->forceDelete();
 
             $this->success(
-                title: 'Produto excluído permanentemente!',
-                description: 'O Produto foi excluído permanentemente.',
+                title: 'guardiao excluído permanentemente!',
+                description: 'O guardiao foi excluído permanentemente.',
             );
     }
 
@@ -148,40 +148,40 @@ final class GuardiaoTable extends PowerGridComponent
           
             $acoes[] = Button::add('restore')
                 ->slot('Restaurar')
-                ->tooltip('Restaurar produto excluído ao sistema')
+                ->tooltip('Restaurar guardiao excluído ao sistema')
                 ->id()
                 ->class('py-1 px-4 border-2 border-black rounded-md text-black hover:text-white hover:bg-black')
-                ->dispatch('restore', ['produtoId' => $row->id]);
+                ->dispatch('restore', ['guardiaoId' => $row->id]);
 
             $acoes[] = Button::add('force-delete')
                 ->slot('Excluir permanentemente')
-                ->tooltip('Remover produto permanentemente do sistema')
+                ->tooltip('Remover guardiao permanentemente do sistema')
                 ->id()
                 ->class('py-1 px-4 border-2 border-rose-600 rounded-md text-rose-600 hover:text-white hover:bg-rose-600')
-                ->dispatch('force-delete', ['produtoId' => $row->id]);
+                ->dispatch('force-delete', ['guardiaoId' => $row->id]);
                 
         } else {
 
             $acoes[] = Button::add('view')
                 ->slot('Ver')
-                ->tooltip('Observar informações do produto no sistema')
+                ->tooltip('Observar informações do guardiao no sistema')
                 ->id()
                 ->class('py-1 px-4 border-2 border-black rounded-md text-black hover:text-white hover:bg-black')
-                ->dispatch('view', ['produtoId' => $row->id]);
+                ->dispatch('view', ['guardiaoId' => $row->id]);
 
             $acoes[] = Button::add('edit')
                 ->slot('Editar')
-                ->tooltip('Editar informações do produto no sistema')
+                ->tooltip('Editar informações do guardiao no sistema')
                 ->id()
                 ->class('py-1 px-4 border-2 border-black rounded-md text-black hover:text-white hover:bg-black')
-                ->dispatch('edit', ['produtoId' => $row->id]);
+                ->dispatch('edit', ['guardiaoId' => $row->id]);
             
             $acoes[] = Button::add('delete')
                 ->slot('Excluir')
-                ->tooltip('Remover produto do sistema')
+                ->tooltip('Remover guardiao do sistema')
                 ->id()
                 ->class('py-1 px-4 border-2 border-rose-600 rounded-md text-rose-600 hover:text-white hover:bg-rose-600')
-                ->dispatch('delete', ['produtoId' => $row->id]);
+                ->dispatch('delete', ['guardiaoId' => $row->id]);
 
         }
 

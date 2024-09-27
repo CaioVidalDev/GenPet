@@ -35,17 +35,30 @@ $logout = function (Logout $logout) {
 
 <body class="font-sans antialiased">
 
-  
-
     <x-mary-main with-nav full-width>
 
-        <x-slot:sidebar drawer="main-drawer" collapsible class="bg-base-200">
+        <x-slot:sidebar drawer="main" collapsible class="bg-base-200">
 
             <x-mary-menu active-bg-color="bg-primary" activate-by-route>
+
+    
                 <x-mary-menu-item :title="__('Dashboard')" icon="" :link="route('dashboard')" />
                 <x-mary-menu-item :title="__('Guardiao')" icon="" :link="route('guardiaos.index')" />
+                <x-mary-menu-item :title="__('Perfil')" icon="" :link="route('profile.edit')" />
+
+                
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-mary-menu-item :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-mary-menu-item>
+                </form>
                 
             </x-mary-menu>
+            
             
         </x-slot:sidebar>
 
@@ -54,7 +67,7 @@ $logout = function (Logout $logout) {
         </x-slot:content>
 
     </x-mary-main>
-
+   
     <x-mary-toast />
 
     @livewireScripts
