@@ -16,7 +16,7 @@
 
     </div>
         
-    <div class="mt-4">
+    <div class="rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
         <livewire:guardiaos.update-guardiao :$guardiao/>
     </div>
 

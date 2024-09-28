@@ -16,7 +16,7 @@ class GuardiaoForm extends Form
     #[Validate('nullable|email')]
     public $email = '';
 
-    #[Validate('required|phone:BR')]
+    #[Validate('required')]
     public $telefone = '';
 
     public function setGuardiao(Guardiao $guardiao)

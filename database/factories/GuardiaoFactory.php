@@ -12,7 +12,7 @@ class GuardiaoFactory extends Factory
         return [
             'nome' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'telefone' => fake()->phoneNumber(),
+            'telefone' => fake()->numberBetween(10000000000, 99999999999),
         ];
     }
 }

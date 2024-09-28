@@ -17,7 +17,7 @@
     </div>
     
 
-    <div class="mt-8">
+    <div class="rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
 
         <livewire:animals.view-animal :$animal />
 

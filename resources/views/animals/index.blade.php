@@ -14,7 +14,7 @@
 
             </div>
 
-            <div class="p-6.5">
+            <div class="rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
                 <livewire:tables.animal-table />
             </div>
 
