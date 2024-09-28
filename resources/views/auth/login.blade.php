@@ -15,7 +15,7 @@
 
             <!-- Password -->
             <div class="mb-4">
-                <x-input-label for="password" :value="__('Password')" class="text-black" />
+                <x-input-label for="password" :value="__('Senha')" class="text-black" />
                 <x-text-input id="password" class="block mt-1 w-full input input-bordered text-base-content" type="password" name="password" required autocomplete="current-password" />
                 <x-input-error :messages="$errors->get('password')" class="mt-2 text-error-content" />
             </div>
@@ -31,7 +31,7 @@
             <div class="flex items-center justify-between mt-6">
                 @if (Route::has('password.request'))
                     <a class="link link-primary text-sm" href="{{ route('register') }}">
-                        {{ __('Registra-se') }}
+                        {{ __('Cadastra-se') }}
                     </a>
 
                 @endif

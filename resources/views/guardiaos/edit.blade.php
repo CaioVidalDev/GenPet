@@ -11,17 +11,8 @@
         </div>
 
 
-        <x-ts-button icon="magnifying-glass" :href="route('guardiaos.index')" wire:navigate :personalize="[
-            'wrapper.class' => [
-                'append' => 'sm:hidden',
-            ],
-        ]" />
+        <x-mary-button icon="o-magnifying-glass" :label="__('Pesquisar')" :link="route('guardiaos.index')" class="btn-ghost"/>
 
-        <x-ts-button icon="magnifying-glass" :text="__('Pesquisar')" :href="route('guardiaos.index')" wire:navigate :personalize="[
-            'wrapper.class' => [
-                'append' => 'hidden sm:flex',
-            ],
-        ]" />
 
     </div>
         

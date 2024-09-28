@@ -5,7 +5,7 @@
 
             <!-- Name -->
             <div class="mb-4">
-                <x-input-label for="name" :value="__('Name')" class="text-black" />
+                <x-input-label for="name" :value="__('Nome')" class="text-black" />
                 <x-text-input id="name" class="block mt-1 w-full input input-bordered text-base-content" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                 <x-input-error :messages="$errors->get('name')" class="mt-2 text-error-content" />
             </div>
@@ -19,14 +19,14 @@
 
             <!-- Password -->
             <div class="mb-4">
-                <x-input-label for="password" :value="__('Password')" class="text-black" />
+                <x-input-label for="password" :value="__('Senha')" class="text-black" />
                 <x-text-input id="password" class="block mt-1 w-full input input-bordered text-base-content" type="password" name="password" required autocomplete="new-password" />
                 <x-input-error :messages="$errors->get('password')" class="mt-2 text-error-content" />
             </div>
 
             <!-- Confirm Password -->
             <div class="mb-4">
-                <x-input-label for="password_confirmation" :value="__('Confirm Password')" class="text-black" />
+                <x-input-label for="password_confirmation" :value="__('Confirmar Senha')" class="text-black" />
                 <x-text-input id="password_confirmation" class="block mt-1 w-full input input-bordered text-base-content" type="password" name="password_confirmation" required autocomplete="new-password" />
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 text-error-content" />
             </div>
@@ -41,7 +41,7 @@
                 
 
                 <x-primary-button class="btn btn-primary">
-                    {{ __('Register') }}
+                    {{ __('Cadastrar') }}
                 </x-primary-button>
             </div>
         </form>

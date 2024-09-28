@@ -13,7 +13,7 @@ return new class extends Migration
 
             $table->string('nome');
             $table->string('email')->nullable();
-            $table->string('telefone')->nullable();
+            $table->string('telefone');
 
             $table->softDeletes();
             $table->timestamps();
