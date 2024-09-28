@@ -5,7 +5,7 @@
             <x-mary-tab name="dados-pessoais" label="Dados Pessoais" icon="o-users">
                 <div class="grid grid-cols-3 gap-4">
                     
-                    <x-mary-input label="Nome*" value="{{ $guardiao->nome }}"  readonly/>
+                    <x-mary-input label="Nome" value="{{ $guardiao->nome }}"  readonly/>
                     
                     <x-mary-input label="Email" value="{{ $guardiao->email }}" readonly/>
 

@@ -7,15 +7,15 @@
             <div class="flex justify-between items-center px-6.5 py-4">
 
                 <h3 class="font-bold text-xl border-b-6 border-primary text-black">
-                    {{ __('Pesquisando Guardiões') }}
+                    {{ __('Pesquisando Animais') }}
                 </h3>
 
-                <x-mary-button icon="o-plus" :label="__('Adicionar')" :link="route('guardiaos.create')" class="btn-ghost"/>
+                <x-mary-button icon="o-plus" :label="__('Adicionar')" :link="route('animals.create')" class="btn-ghost"/>
 
             </div>
 
             <div class="p-6.5">
-                <livewire:tables.guardiao-table />
+                <livewire:tables.animal-table />
             </div>
 
         </div>

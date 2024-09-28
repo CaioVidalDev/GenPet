@@ -2,9 +2,20 @@
 
 return [
 
-    'tipo_fluxo_caixa' => [
-        'entrada' => 'Entrada',
-        'saida' => 'Saída'
-    ]
+    'sexo' => [
+     'Macho' => 'Macho',
+     'Femea' => 'Femea',
+     
+    ],
+
+    'porte' => [
+        'Miniatura' => 'Miniatura',
+        'Pequeno' => 'Pequeno',
+        'Medio' => 'Medio',
+        'Grande' => 'Grande',
+        'Gigante' => 'Gigante',
+        
+       ],
+
 
 ];

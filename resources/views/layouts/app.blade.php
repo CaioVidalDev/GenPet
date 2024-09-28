@@ -44,7 +44,7 @@ $logout = function (Logout $logout) {
     
                 <x-mary-menu-item :title="__('Dashboard')" icon="ri.dashboard-fill" :link="route('dashboard')" />
                 <x-mary-menu-item :title="__('Guardiao')" icon="ri.shield-user-fill" :link="route('guardiaos.index')" />
-                <x-mary-menu-item :title="__('Animais')" icon="fas.dog" />
+                <x-mary-menu-item :title="__('Animais')" icon="fas.dog" :link="route('animals.index')" />
                 <x-mary-menu-item :title="__('Perfil')" icon="ri.user-fill" :link="route('profile.edit')" />
 
                 

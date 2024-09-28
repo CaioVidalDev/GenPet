@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\Porte;
+use App\Enums\Sexo;
 use App\Models\Guardiao;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -15,16 +17,17 @@ class AnimalFactory extends Factory
 
         return [
             'nome' => fake()->firstName(),  
+            'nascimento' => fake()->dateTimeBetween('-2 years', '2 years'),
 
-            'guardiao_id' => $guadiao->id,
+            'especie' => fake()->name(),
+            'porte' => fake()->randomElement(Porte::values()),
 
-            'especie' => fake()->name(),  //randomElement(['Cão', 'Gato', 'Pássaro']), 
             'raca' => fake()->word(),  
-            'cor' => fake()->colorName(),  
-            'porte' => fake()->word(), //randomElement(['Pequeno', 'Médio', 'Grande']),  
-            'nascimento' => fake()->date(),  
-            'sexo' => fake()->word(),  //randomElement(['M', 'F']), 
-            'observacoes' => fake()->sentence(),  
+            'pelagem' => fake()->colorName(),  
+            'sexo' => fake()->randomElement(Sexo::values()),
+
+            'microship' => fake()->sentence(),  
+            'observacoes' => fake()->text(),  
  
         ];
     }

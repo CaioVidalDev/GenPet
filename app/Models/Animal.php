@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Enums\Porte;
+use App\Enums\Sexo;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,17 +18,24 @@ class Animal extends Model
             'nome' ,  
             'especie' , 
             'raca' ,  
-            'cor' ,  
+            'pelagem' ,  
             'porte' , 
             'nascimento' ,  
             'sexo' , 
+            'microship',
             'observacoes'
     ];
 
-    public function guardiao(): BelongsTo
+    protected function casts(): array
     {
-        return $this->belongsTo(Guardiao::class)->withTrashed();
+        
+        return [
+
+            'porte' => Porte::class,
+            'sexo' => Sexo::class,
+        ];
+                
     }
 
-   
+
 }
