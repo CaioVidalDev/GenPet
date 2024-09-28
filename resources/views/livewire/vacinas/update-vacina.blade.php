@@ -13,11 +13,11 @@
 
                     <x-mary-input label="Laboratório*" wire:model="form.laboratorio" placeholder="Digite o laboratório" />
 
-                    <x-mary-input label="Número do lote*" wire:model="form.raca" placeholder="Digite o número do lote" />
+                    <x-mary-input label="Número do lote*" wire:model="form.lote" placeholder="Digite o número do lote" />
 
                     <x-mary-input label="Data de aplicação*" wire:model="form.aplicacao" x-mask="99/99/9999" placeholder="MM/DD/YYYY" :min-date="now()->subYears(150)" :max-date="now()" />
 
-                    <x-mary-input label="Data de revacinação*" wire:model="form.revanicacao" x-mask="99/99/9999" placeholder="MM/DD/YYYY" :min-date="now()->subYears(150)" :max-date="now()" />
+                    <x-mary-input label="Data de revacinação*" wire:model="form.revacinacao" x-mask="99/99/9999" placeholder="MM/DD/YYYY" :min-date="now()->subYears(150)" :max-date="now()" />
 
                 <div class="sm:col-span-full">
                     <x-mary-textarea label="Observações" wire:model="form.observacoes" placeholder="" />

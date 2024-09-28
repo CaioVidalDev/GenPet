@@ -19,13 +19,13 @@ class VacinaForm extends Form
     #[Validate('required|max:256')]
     public $laboratorio = '';
 
-    #[Validate('required')]
+    #[Validate('nullable|inetger')]
     public $lote = '';
 
     #[Validate('required')]
     public $aplicacao = '';
 
-    #[Validate('required')]
+    #[Validate('nullable')]
     public $revacinacao = '';
     
     #[Validate('nullable|max:2048')]

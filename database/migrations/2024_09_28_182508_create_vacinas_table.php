@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('laboratorio');
             $table->unsignedSmallInteger('lote')->nullable();
             $table->date('aplicacao');
-            $table->date('revacinacao');
-            $table->string('observacoes');
+            $table->date('revacinacao')->nullable();
+            $table->string('observacoes')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

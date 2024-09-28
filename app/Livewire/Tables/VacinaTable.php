@@ -60,8 +60,9 @@ final class VacinaTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('Nome', 'nome')->searchable()->sortable(),
+            Column::make('Vacina', 'nome')->searchable()->sortable(),
             Column::make('Animal', 'animal.nome')->searchable()->sortable(),
+            Column::make('Laboratório', 'laboratorio')->searchable()->sortable(),
             Column::action('Action'),
         ];
     }
