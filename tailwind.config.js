@@ -20,7 +20,7 @@ export default {
     daisyui: {
         themes: [{
                 'light': {
-                    "primary": "#e0aaff",
+                    "primary": "#c77dff",
                     "primary-content": "#ffffff",
                     "secondary": "#e5b3fe",
                     "secondary-content": "#ffd6ff",

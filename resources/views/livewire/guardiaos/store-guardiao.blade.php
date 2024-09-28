@@ -11,7 +11,7 @@
 
                     <x-mary-input label="Email" wire:model="form.email" placeholder="Digte o email" />
 
-                    <x-mary-input label="Telefone*" wire:model="form.telefone" placeholder="Digte seu telefone" x-mask="99 99999 9999"/>
+                    <x-mary-input label="Telefone*" wire:model="form.telefone" placeholder="Digte seu telefone" x-mask="(99)99999-9999"/>
 
                 </div>
             </x-mary-tab>
