@@ -42,15 +42,16 @@ $logout = function (Logout $logout) {
             <x-mary-menu active-bg-color="bg-primary" activate-by-route>
 
     
-                <x-mary-menu-item :title="__('Dashboard')" icon="" :link="route('dashboard')" />
-                <x-mary-menu-item :title="__('Guardiao')" icon="" :link="route('guardiaos.index')" />
-                <x-mary-menu-item :title="__('Perfil')" icon="" :link="route('profile.edit')" />
+                <x-mary-menu-item :title="__('Dashboard')" icon="ri.dashboard-fill" :link="route('dashboard')" />
+                <x-mary-menu-item :title="__('Guardiao')" icon="ri.shield-user-fill" :link="route('guardiaos.index')" />
+                <x-mary-menu-item :title="__('Animais')" icon="fas.dog" />
+                <x-mary-menu-item :title="__('Perfil')" icon="ri.user-fill" :link="route('profile.edit')" />
 
                 
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-mary-menu-item :href="route('logout')"
+                    <x-mary-menu-item icon="ri.logout-box-fill" :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}

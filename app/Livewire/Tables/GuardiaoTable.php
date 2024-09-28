@@ -33,6 +33,7 @@ final class GuardiaoTable extends PowerGridComponent
             Footer::make()
                 ->showPerPage()
                 ->showRecordCount(),
+                
         ];
     }
 

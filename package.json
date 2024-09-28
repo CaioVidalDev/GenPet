@@ -19,6 +19,7 @@
         "vite": "^5.4.8"
     },
     "dependencies": {
+        "@tabler/icons": "^3.19.0",
         "apexcharts": "^3.53.0",
         "flatpickr": "^4.6.13",
         "slim-select": "^2.9.0",
