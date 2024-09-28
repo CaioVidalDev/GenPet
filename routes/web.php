@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\GuardiaoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VacinaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,6 +24,9 @@ Route::middleware(['auth', 'verified'])->resource('guardiaos', GuardiaoControlle
     ->except(['store', 'update', 'delete']);
 
 Route::middleware(['auth', 'verified'])->resource('animals', AnimalController::class)
+    ->except(['store', 'update', 'delete']);
+
+Route::middleware(['auth', 'verified'])->resource('vacinas', VacinaController::class)
     ->except(['store', 'update', 'delete']);
 
 require __DIR__.'/auth.php';

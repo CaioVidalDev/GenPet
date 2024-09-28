@@ -17,7 +17,7 @@ class AnimalFactory extends Factory
 
         return [
             'nome' => fake()->firstName(),  
-            'nascimento' => fake()->dateTimeBetween('-2 years', '2 years'),
+            'nascimento' => fake()->date(),
 
             'especie' => fake()->name(),
             'porte' => fake()->randomElement(Porte::values()),

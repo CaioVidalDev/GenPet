@@ -6,7 +6,7 @@
 
     <div class="flex items-center justify-between">
 
-        <div class="text-2xl font-semibold underline decoration-primary sm:text-3xl dark:text-white">
+        <div class="font-bold text-xl border-b-6 border-primary text-black">
             {{ __('Editando Animal') }}
         </div>
 

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Animal;
 use App\Models\Guardiao;
 use App\Models\User;
+use App\Models\Vacina;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
 
         Guardiao::factory(30)->create();
         Animal::factory(30)->create();
+        Vacina::factory(30)->create();
 
     }
 }

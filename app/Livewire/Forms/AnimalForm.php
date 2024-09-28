@@ -16,25 +16,25 @@ class AnimalForm extends Form
     #[Validate('required')]
     public $nascimento = '';
 
-    #[Validate('required')]
+    #[Validate('required|max:100')]
     public $especie = '';
 
     #[Validate('required')]
     public $porte = '';
 
-    #[Validate('required')]
+    #[Validate('required|max:100')]
     public $raca = '';
 
-    #[Validate('required')]
+    #[Validate('required|max:100')]
     public $pelagem = '';
     
     #[Validate('required')]
     public $sexo = '';
 
-    #[Validate('nullable')]
+    #[Validate('nullable|max:100')]
     public $microship = '';
 
-    #[Validate('nullable')]
+    #[Validate('nullable|max:2048')]
     public $observacoes = '';
 
     public function setAnimal(Animal $animal)
