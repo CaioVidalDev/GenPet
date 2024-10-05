@@ -41,11 +41,12 @@ $logout = function (Logout $logout) {
 
             <x-mary-menu active-bg-color="bg-primary" activate-by-route>
 
-    
+
                 <x-mary-menu-item :title="__('Dashboard')" icon="ri.dashboard-fill" :link="route('dashboard')" />
-                <x-mary-menu-item :title="__('Guardiao')" icon="ri.shield-user-fill" :link="route('guardiaos.index')" />
+                <x-mary-menu-item :title="__('Guardiões')" icon="ri.shield-user-fill" :link="route('guardiaos.index')" />
                 <x-mary-menu-item :title="__('Animais')" icon="fas.dog" :link="route('animals.index')" />
                 <x-mary-menu-item :title="__('Vacinas')" icon="tabler.vaccine" :link="route('vacinas.index')" />
+                <x-mary-menu-item :title="__('Tratamentos')" icon="healthicons.f-hospitalized" :link="route('tratamentos.index')" />
                 <x-mary-menu-item :title="__('Perfil')" icon="ri.user-fill" :link="route('profile.edit')" />
 
                 

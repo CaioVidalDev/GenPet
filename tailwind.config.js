@@ -51,7 +51,7 @@ export default {
     theme: {
         extend: {
             colors: {
-                "pg-primary": colors.fuchsia,
+                "pg-primary": colors.blue,
             },
             fontFamily: {
                 sans: ['Montserrat', ...defaultTheme.fontFamily.sans],

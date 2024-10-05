@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Tables;
 
-use App\Models\Vacina;
+use App\Models\Tratamento;
 use Illuminate\Database\Eloquent\Builder;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
@@ -15,7 +15,7 @@ use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 use Mary\Traits\Toast;
 
-final class VacinaTable extends PowerGridComponent
+final class TratamentoTable extends PowerGridComponent
 {
     use WithExport, Toast;
 
@@ -39,7 +39,7 @@ final class VacinaTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Vacina::query()
+        return Tratamento::query()
             ->with(['animal']);
     }
 
@@ -60,9 +60,9 @@ final class VacinaTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('Vacina', 'nome')->searchable()->sortable(),
+            Column::make('Tratamento', 'tipo')->searchable()->sortable(),
             Column::make('Animal', 'animal.nome')->searchable()->sortable(),
-            Column::make('Laboratório', 'laboratorio')->searchable()->sortable(),
+            Column::make('Veterinário Responsável', 'veterinario_responsavel')->searchable()->sortable(),
             Column::action('Action'),
         ];
     }
@@ -73,25 +73,25 @@ final class VacinaTable extends PowerGridComponent
     }
 
     #[\Livewire\Attributes\On('view')]
-    public function view($vacinaId): void
+    public function view($tratamentoId): void
     {
-        $this->redirect("vacinas/$vacinaId", navigate: true);
+        $this->redirect("tratamentos/$tratamentoId", navigate: true);
     }
 
     #[\Livewire\Attributes\On('edit')]
-    public function edit($vacinaId): void
+    public function edit($tratamentoId): void
     {
-        $this->redirect("vacinas/$vacinaId/edit", navigate: true);
+        $this->redirect("tratamentos/$tratamentoId/edit", navigate: true);
     }
 
     #[\Livewire\Attributes\On('delete')]
-    public function delete($vacinaId): void
+    public function delete($tratamentoId): void
     {
-        Vacina::destroy($vacinaId);
+        Tratamento::destroy($tratamentoId);
 
         $this->success(
-            title: 'Vacina excluída!',
-            description: 'A Vacina foi excluída com sucesso.',
+            title: 'Tratamento excluído!',
+            description: 'O Tratamento foi excluído com sucesso.',
         );
     }
 
@@ -102,40 +102,40 @@ final class VacinaTable extends PowerGridComponent
 
         if (count($checkedValues) === 0) {
             $this->warning(
-                title: 'Nenhuma vacina selecionada!',
-                description: 'Nenhuma vacina foi selecionada',
+                title: 'Nenhum tratamento selecionado!',
+                description: 'Nenhum tratamento foi selecionado',
             );
         } else {
-            $vacinasIds = array_values($checkedValues);
+            $tratamentosIds = array_values($checkedValues);
 
-            Vacina::destroy($vacinasIds);
+            Tratamento::destroy($tratamentosIds);
 
             $this->success(
-                title: 'Vacinas excluídas!',
-                description: 'As vacinas foram excluídas com sucesso.',
+                title: 'Tratamentos excluídos!',
+                description: 'Os Tratamentos foram excluídos com sucesso.',
             );
         }
     }
 
     #[\Livewire\Attributes\On('restore')]
-    public function restore($vacinaId): void
+    public function restore($tratamentoId): void
     {
-        Vacina::withTrashed()->find($vacinaId)->restore();
+        Tratamento::withTrashed()->find($tratamentoId)->restore();
 
             $this->success(
-                title: 'Vacina restaurada!',
-                description: 'A Vacina foi restaurada com sucesso.',
+                title: 'Tratamento restaurado!',
+                description: 'O Tratamento foi restaurado com sucesso.',
             );
     }
 
     #[\Livewire\Attributes\On('force-delete')]
-    public function forceDelete($vacinaId): void
+    public function forceDelete($tratamentoId): void
     {
-        Vacina::withTrashed()->find($vacinaId)->forceDelete();
+        Tratamento::withTrashed()->find($tratamentoId)->forceDelete();
 
             $this->success(
-                title: 'Vacina excluída permanentemente!',
-                description: 'A Vacina foi excluída permanentemente.',
+                title: 'Tratamento excluído permanentemente!',
+                description: 'O Tratamento foi excluído permanentemente.',
             );
     }
 
@@ -149,47 +149,47 @@ final class VacinaTable extends PowerGridComponent
         ];
     }
 
-    public function actions(Vacina $row): array
+    public function actions(Tratamento $row): array
     {
 
         if ($row->trashed()) {
           
             $acoes[] = Button::add('restore')
                 ->slot('Restaurar')
-                ->tooltip('Restaurar vacina excluído ao sistema')
+                ->tooltip('Restaurar tratamento excluído ao sistema')
                 ->id()
                 ->class('py-1 px-4 border-2 border-black rounded-md text-black hover:text-white hover:bg-black')
-                ->dispatch('restore', ['vacinaId' => $row->id]);
+                ->dispatch('restore', ['tratamentoId' => $row->id]);
 
             $acoes[] = Button::add('force-delete')
                 ->slot('Excluir permanentemente')
-                ->tooltip('Remover vacina permanentemente do sistema')
+                ->tooltip('Remover tratamento permanentemente do sistema')
                 ->id()
                 ->class('py-1 px-4 border-2 border-rose-600 rounded-md text-rose-600 hover:text-white hover:bg-rose-600')
-                ->dispatch('force-delete', ['vacinaId' => $row->id]);
+                ->dispatch('force-delete', ['tratamentoId' => $row->id]);
                 
         } else {
 
             $acoes[] = Button::add('view')
                 ->slot('Ver')
-                ->tooltip('Observar informações do vacina no sistema')
+                ->tooltip('Observar informações do tratamento no sistema')
                 ->id()
                 ->class('py-1 px-4 border-2 border-black rounded-md text-black hover:text-white hover:bg-black')
-                ->dispatch('view', ['vacinaId' => $row->id]);
+                ->dispatch('view', ['tratamentoId' => $row->id]);
 
             $acoes[] = Button::add('edit')
                 ->slot('Editar')
-                ->tooltip('Editar informações do vacina no sistema')
+                ->tooltip('Editar informações do tratamento no sistema')
                 ->id()
                 ->class('py-1 px-4 border-2 border-black rounded-md text-black hover:text-white hover:bg-black')
-                ->dispatch('edit', ['vacinaId' => $row->id]);
+                ->dispatch('edit', ['tratamentoId' => $row->id]);
             
             $acoes[] = Button::add('delete')
                 ->slot('Excluir')
-                ->tooltip('Remover vacina do sistema')
+                ->tooltip('Remover tratamento do sistema')
                 ->id()
                 ->class('py-1 px-4 border-2 border-rose-600 rounded-md text-rose-600 hover:text-white hover:bg-rose-600')
-                ->dispatch('delete', ['vacinaId' => $row->id]);
+                ->dispatch('delete', ['tratamentoId' => $row->id]);
 
         }
 

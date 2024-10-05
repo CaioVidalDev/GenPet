@@ -2,9 +2,12 @@
 
 namespace App\Livewire\Forms;
 
+use App\Enums\Porte;
+use App\Enums\Sexo;
 use App\Models\Animal;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
+use Illuminate\Validation\Rule;
 
 class AnimalForm extends Form
 {
@@ -36,6 +39,22 @@ class AnimalForm extends Form
 
     #[Validate('nullable|max:2048')]
     public $observacoes = '';
+
+    public function rules() 
+    {
+        return [
+            'sexo' => [
+                'required',
+                Rule::enum(Sexo::class)
+            ],
+
+            'porte' => [
+                'required',
+                Rule::enum(Porte::class)
+            ],
+        
+        ];
+    }
 
     public function setAnimal(Animal $animal)
     {

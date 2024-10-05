@@ -23,7 +23,8 @@
         "robsontenorio/mary": "^1.35",
         "ryangjchandler/blade-tabler-icons": "^2.3",
         "tallstackui/tallstackui": "^1.35",
-        "toshy/bunnynet-php": "^4.0"
+        "toshy/bunnynet-php": "^4.0",
+        "troccoli/blade-health-icons": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

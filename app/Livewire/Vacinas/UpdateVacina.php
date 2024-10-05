@@ -17,7 +17,7 @@ class UpdateVacina extends Component
     public function mount(Vacina $vacina)
     {
         $vacina->refresh();
-        $this->form->setvacina($vacina);
+        $this->form->setVacina($vacina);
     }
 
     public function update()
