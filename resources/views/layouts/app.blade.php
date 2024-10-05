@@ -35,11 +35,11 @@ $logout = function (Logout $logout) {
 
 <body class="font-sans antialiased">
 
-    <x-mary-main with-nav full-width>
+    <x-mary-main full-width>
 
         <x-slot:sidebar drawer="main" collapsible class="bg-base-200">
 
-            <x-mary-menu active-bg-color="bg-primary" activate-by-route>
+            <x-mary-menu active-bg-color="bg-primary" class="w-full flex flex-col space-y-2" activate-by-route>
 
 
                 <x-mary-menu-item :title="__('Dashboard')" icon="ri.dashboard-fill" :link="route('dashboard')" />
@@ -47,6 +47,7 @@ $logout = function (Logout $logout) {
                 <x-mary-menu-item :title="__('Animais')" icon="fas.dog" :link="route('animals.index')" />
                 <x-mary-menu-item :title="__('Vacinas')" icon="tabler.vaccine" :link="route('vacinas.index')" />
                 <x-mary-menu-item :title="__('Tratamentos')" icon="healthicons.f-hospitalized" :link="route('tratamentos.index')" />
+                <x-mary-menu-item :title="__('Serviços')" icon="ri.scissors-2-fill" :link="route('servicos.index')" />
                 <x-mary-menu-item :title="__('Perfil')" icon="ri.user-fill" :link="route('profile.edit')" />
 
                 

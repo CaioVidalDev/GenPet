@@ -8,6 +8,7 @@
         "php": "^8.2",
         "andreiio/blade-remix-icon": "^3.3",
         "browner12/helpers": "^3.6",
+        "cknow/laravel-money": "^8.1",
         "laravel/framework": "^11.9",
         "laravel/pail": "^1.1",
         "laravel/sanctum": "^4.0",

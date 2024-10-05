@@ -23,7 +23,7 @@ class TratamentoFactory extends Factory
             'dosagem' => fake()->numberBetween(1, 100),
             'via_administracao' => fake()->randomElement(Via::values()),
             'veterinario_responsavel' => fake()->name(),
-            'observacoes' => fake()->optional()->text(), 
+            'observacoes' => fake()->text(), 
         
         ];
     }
