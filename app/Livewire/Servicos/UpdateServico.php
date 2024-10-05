@@ -23,6 +23,7 @@ class UpdateServico extends Component
     public function update()
     {
         $this->form->update();
+        session()->flash('servico-updated');
         $this->redirect('/servicos'); 
     }
 

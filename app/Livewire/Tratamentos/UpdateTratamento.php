@@ -24,6 +24,7 @@ class UpdateTratamento extends Component
     public function update()
     {
         $this->form->update();
+        session()->flash('tratamento-updated');
         $this->redirect('/tratamentos'); 
     }
 

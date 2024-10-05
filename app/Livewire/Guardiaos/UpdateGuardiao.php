@@ -21,6 +21,7 @@ class UpdateGuardiao extends Component
     public function update()
     {
         $this->form->update();
+        session()->flash('guardiao-updated');
         $this->redirect('/guardiaos'); 
     }
 

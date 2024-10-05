@@ -15,6 +15,14 @@
             </div>
 
             <div class="rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
+
+                @if (session('vacina-updated'))
+                    <div id="alert-success" class="my-4">
+                        <x-mary-alert icon="o-check-circle" title="Vacina atualizada com sucesso"
+                            description="Os dados da vacina foram atualizados com sucesso." class="alert-success" close />
+                    </div>
+                @endif
+
                 <livewire:tables.vacina-table />
             </div>
 

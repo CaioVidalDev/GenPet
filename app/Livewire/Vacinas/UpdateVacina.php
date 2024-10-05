@@ -23,6 +23,7 @@ class UpdateVacina extends Component
     public function update()
     {
         $this->form->update();
+        session()->flash('vacina-updated');
         $this->redirect('/vacinas'); 
     }
 

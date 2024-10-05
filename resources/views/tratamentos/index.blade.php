@@ -15,6 +15,14 @@
             </div>
 
             <div class="rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
+
+                @if (session('tratamento-updated'))
+                    <div id="alert-success" class="my-4">
+                        <x-mary-alert icon="o-check-circle" title="Tratamento atualizado com sucesso"
+                            description="Os dados do tratamento foram atualizados com sucesso." class="alert-success" close />
+                    </div>
+                @endif
+
                 <livewire:tables.tratamento-table />
             </div>
 

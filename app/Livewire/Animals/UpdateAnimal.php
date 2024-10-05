@@ -23,6 +23,7 @@ class UpdateAnimal extends Component
     public function update()
     {
         $this->form->update();
+        session()->flash('animal-updated');
         $this->redirect('/animals'); 
     }
 
