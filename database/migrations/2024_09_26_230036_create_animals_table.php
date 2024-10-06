@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Especie;
 use App\Enums\Porte;
 use App\Enums\Sexo;
 use Illuminate\Database\Migrations\Migration;
@@ -15,9 +16,10 @@ return new class extends Migration
             $table->id();
 
             $table->string('nome');
+            $table->foreignId('guardiao_id')->constrained(table: 'guardiaos');
             $table->date('nascimento');
 
-            $table->string('especie');
+            $table->enum('especie',Especie::values()); 
             $table->enum('porte',Porte::values()); 
 
             $table->string('raca');

@@ -40,7 +40,8 @@ final class VacinaTable extends PowerGridComponent
     public function datasource(): Builder
     {
         return Vacina::query()
-            ->with(['animal']);
+            ->join('animals', 'vacinas.animal_id', '=', 'animals.id')
+            ->select('vacinas.*', 'animals.nome as animal_nome');
     }
 
     public function relationSearch(): array
@@ -53,15 +54,15 @@ final class VacinaTable extends PowerGridComponent
     public function fields(): PowerGridFields
     {
         return PowerGrid::fields()
-        ->add('id')
-        ->add('animal.nome');
+            ->add('id')
+            ->add('animal_nome');
     }
 
     public function columns(): array
     {
         return [
             Column::make('Vacina', 'nome')->searchable()->sortable(),
-            Column::make('Animal', 'animal.nome')->searchable()->sortable(),
+            Column::make('Animal', 'animal_nome')->searchable()->sortable(),
             Column::make('Laboratório', 'laboratorio')->searchable()->sortable(),
             Column::action('Action'),
         ];

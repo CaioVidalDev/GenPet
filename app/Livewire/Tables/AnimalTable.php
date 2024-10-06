@@ -39,25 +39,34 @@ final class AnimalTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Animal::query();
+        return Animal::query()
+            ->join('guardiaos', 'animals.guardiao_id', '=', 'guardiaos.id')
+            ->select('animals.*', 'guardiaos.nome as guardiao_nome');
     }
 
     public function relationSearch(): array
     {
-        return [];
+        return [
+            'guardiao' => ['nome']
+        ];
     }
 
     public function fields(): PowerGridFields
     {
-        return PowerGrid::fields();
+        return PowerGrid::fields()
+            ->add('id')
+            ->add('guardiao_nome')
+            ->add('especie_formatted', fn ($animal) => trans($animal->especie->label()));
+
     }
 
     public function columns(): array
     {
         return [
             Column::make('Nome', 'nome')->searchable()->sortable(),
-            Column::make('Especie', 'especie')->searchable()->sortable(),
+            Column::make('Espécie', 'especie_formatted')->searchable()->sortable(),
             Column::make('Raça', 'raca')->searchable()->sortable(),
+            Column::make('Guardião', 'guardiao_nome')->searchable()->sortable(),
 
             Column::action('Action'),
         ];

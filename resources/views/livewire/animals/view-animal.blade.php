@@ -7,15 +7,17 @@
                     
                     <x-mary-input label="Nome" value="{{ $animal->nome }}"  readonly/>
 
+                    <x-mary-input label="Guardião" value="{{ $animal->guardiao->nome }}"  readonly/>
+
                     <x-mary-input label="Data de Nascimento" value="{{ $animal->nascimento }}"  readonly/>
 
                     <x-mary-input label="Especie" value="{{ $animal->especie }}"  readonly/>
 
-                    <x-mary-input label="Porte" value="{{ $animal->porte }}"  readonly/>
-
                     <x-mary-input label="Raça" value="{{ $animal->raca }}"  readonly/>
 
                     <x-mary-input label="Pelagem" value="{{ $animal->pelagem }}"  readonly/>
+
+                    <x-mary-input label="Porte" value="{{ $animal->porte }}"  readonly/>
 
                     <x-mary-input label="Sexo" value="{{ $animal->sexo }}"  readonly/>
                     

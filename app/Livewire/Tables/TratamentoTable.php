@@ -40,7 +40,8 @@ final class TratamentoTable extends PowerGridComponent
     public function datasource(): Builder
     {
         return Tratamento::query()
-            ->with(['animal']);
+            ->join('animals', 'tratamentos.animal_id', '=', 'animals.id')
+            ->select('tratamentos.*', 'animals.nome as animal_nome');
     }
 
     public function relationSearch(): array
@@ -53,15 +54,15 @@ final class TratamentoTable extends PowerGridComponent
     public function fields(): PowerGridFields
     {
         return PowerGrid::fields()
-        ->add('id')
-        ->add('animal.nome');
+            ->add('id')
+            ->add('animal_nome');
     }
 
     public function columns(): array
     {
         return [
             Column::make('Tratamento', 'tipo')->searchable()->sortable(),
-            Column::make('Animal', 'animal.nome')->searchable()->sortable(),
+            Column::make('Animal', 'animal_nome')->searchable()->sortable(),
             Column::make('Veterinário Responsável', 'veterinario_responsavel')->searchable()->sortable(),
             Column::action('Action'),
         ];

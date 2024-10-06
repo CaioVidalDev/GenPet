@@ -40,7 +40,8 @@ final class ServicoTable extends PowerGridComponent
     public function datasource(): Builder
     {
         return Servico::query()
-            ->with(['animal']);
+            ->join('animals', 'servicos.animal_id', '=', 'animals.id')
+            ->select('servicos.*', 'animals.nome as animal_nome');
     }
 
     public function relationSearch(): array
@@ -54,14 +55,14 @@ final class ServicoTable extends PowerGridComponent
     {
         return PowerGrid::fields()
         ->add('id')
-        ->add('animal.nome');
+        ->add('animal_nome');
     }
 
     public function columns(): array
     {
         return [
             Column::make('Serviço', 'nome')->searchable()->sortable(),
-            Column::make('Animal', 'animal.nome')->searchable()->sortable(),
+            Column::make('Animal', 'animal_nome')->searchable()->sortable(),
             Column::make('Valor', 'valor')->searchable()->sortable(),
             Column::action('Action'),
         ];

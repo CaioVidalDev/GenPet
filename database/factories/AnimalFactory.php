@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Especie;
 use App\Enums\Porte;
 use App\Enums\Sexo;
 use App\Models\Guardiao;
@@ -16,10 +17,11 @@ class AnimalFactory extends Factory
         $guadiao = Guardiao::inRandomOrder()->first();
 
         return [
-            'nome' => fake()->firstName(),  
+            'nome' => fake()->firstName(),
+            'guardiao_id' => $guadiao->id,
             'nascimento' => fake()->date(),
 
-            'especie' => fake()->name(),
+            'especie' => fake()->randomElement(Especie::values()),
             'porte' => fake()->randomElement(Porte::values()),
 
             'raca' => fake()->word(),  

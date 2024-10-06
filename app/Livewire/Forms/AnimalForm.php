@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Forms;
 
+use App\Enums\Especie;
 use App\Enums\Porte;
 use App\Enums\Sexo;
 use App\Models\Animal;
@@ -16,10 +17,13 @@ class AnimalForm extends Form
     #[Validate('required|max:256')]
     public $nome = '';
 
+    #[Validate('required|exists:guardiaos,id')]
+    public $guardiao_id = '';
+
     #[Validate('required')]
     public $nascimento = '';
 
-    #[Validate('required|max:100')]
+    #[Validate('required')]
     public $especie = '';
 
     #[Validate('required')]
@@ -40,9 +44,19 @@ class AnimalForm extends Form
     #[Validate('nullable|max:2048')]
     public $observacoes = '';
 
+    protected array $messages = [
+        'guardiao_id.required' => 'O campo guardião é obrigatório.',
+    ];
+
     public function rules() 
     {
         return [
+
+            'especie' => [
+                'required',
+                Rule::enum(Especie::class)
+            ],
+
             'sexo' => [
                 'required',
                 Rule::enum(Sexo::class)
@@ -61,6 +75,7 @@ class AnimalForm extends Form
         $this->animal = $animal;
 
         $this->nome = $animal->nome;
+        $this->guardiao_id = $animal->guardiao_id;
         $this->nascimento = $animal->nascimento;
         $this->especie = $animal->especie;
         $this->porte = $animal->porte;
@@ -79,6 +94,7 @@ class AnimalForm extends Form
 
         $animal = Animal::create([
             'nome' => $this->nome,
+            'guardiao_id' => $this->guardiao_id,
             'nascimento' => $this->nascimento,
             'especie' => $this->especie,
             'porte' => $this->porte,
@@ -103,6 +119,7 @@ class AnimalForm extends Form
 
         $this->animal->fill([
             'nome' => $this->nome,
+            'guardiao_id' => $this->guardiao_id,
             'nascimento' => $this->nascimento,
             'especie' => $this->especie,
             'porte' => $this->porte,

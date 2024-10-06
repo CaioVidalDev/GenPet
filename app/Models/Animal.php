@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Especie;
 use App\Enums\Porte;
 use App\Enums\Sexo;
 use Carbon\Carbon;
@@ -16,6 +17,7 @@ class Animal extends Model
 
     protected $fillable = [
             'nome' ,  
+            'guardiao_id',
             'especie' , 
             'raca' ,  
             'pelagem' ,  
@@ -26,11 +28,16 @@ class Animal extends Model
             'observacoes'
     ];
 
+    public function guardiao(): BelongsTo
+    {
+        return $this->belongsTo(Guardiao::class)->withTrashed();
+    }
+
     protected function casts(): array
     {
         
         return [
-
+            'especie' => Especie::class,
             'porte' => Porte::class,
             'sexo' => Sexo::class,
         ];

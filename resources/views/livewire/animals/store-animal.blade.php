@@ -9,15 +9,17 @@
                     
                     <x-mary-input label="{{ __('Nome') }}*" wire:model="form.nome" placeholder="Digte o nome" />
 
+                    <x-mary-select label="Guardião*" wire:model="form.guardiao_id" placeholder="Selecione um guardião" :options="$this->guardiao" select="name:label|id:value" searchable/>
+
                     <x-mary-input label="Data de Nascimento*" wire:model="form.nascimento" x-mask="99/99/9999" placeholder="MM/DD/YYYY" :min-date="now()->subYears(150)" :max-date="now()" />
 
-                    <x-mary-input label="Espécie*" wire:model="form.especie" placeholder="Digite a espécie" />
-
-                    <x-mary-select label="Porte*" wire:model="form.porte" placeholder="Selecione um porte" :options="$porte" />
+                    <x-mary-select label="Espécie*" wire:model="form.especie" placeholder="Digite a espécie" :options="$especie" />
 
                     <x-mary-input label="Raça*" wire:model="form.raca" placeholder="Digite a raça" />
 
                     <x-mary-input label="Pelagem*" wire:model="form.pelagem" placeholder="Digite a Pelagem" />
+
+                    <x-mary-select label="Porte*" wire:model="form.porte" placeholder="Selecione um porte" :options="$porte" />
 
                     <x-mary-select label="Sexo*" wire:model="form.sexo" placeholder="Selecione um sexo" :options="$sexo" />
 
