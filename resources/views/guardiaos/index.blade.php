@@ -20,7 +20,7 @@
 
                 @if (session('guardiao-updated'))
                     <div id="alert-success" class="my-4">
-                        <x-mary-alert icon="o-check-circle" title="Guardião atualizado com sucesso"
+                        <x-mary-alert icon="o-check-circle" title="Guardião atualizado com sucesso!"
                             description="Os dados do guardião foram atualizados com sucesso." class="alert-success" close />
                     </div>
                 @endif

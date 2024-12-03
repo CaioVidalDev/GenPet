@@ -18,7 +18,7 @@
 
                 @if (session('servico-updated'))
                     <div id="alert-success" class="my-4">
-                        <x-mary-alert icon="o-check-circle" title="Serviço atualizado com sucesso"
+                        <x-mary-alert icon="o-check-circle" title="Serviço atualizado com sucesso!"
                             description="Os dados do serviço foram atualizados com sucesso." class="alert-success" close />
                     </div>
                 @endif

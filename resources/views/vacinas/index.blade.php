@@ -18,7 +18,7 @@
 
                 @if (session('vacina-updated'))
                     <div id="alert-success" class="my-4">
-                        <x-mary-alert icon="o-check-circle" title="Vacina atualizada com sucesso"
+                        <x-mary-alert icon="o-check-circle" title="Vacina atualizada com sucesso!"
                             description="Os dados da vacina foram atualizados com sucesso." class="alert-success" close />
                     </div>
                 @endif

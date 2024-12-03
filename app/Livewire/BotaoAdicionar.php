@@ -29,31 +29,15 @@ class BotaoAdicionar extends Component
             <div>
 
                 @if(Illuminate\Support\Str::of($href)->isNotEmpty())
-                    <x-ts-button icon="plus" wire:navigate :$href :personalize="[
-                        'wrapper.class' => [
-                            'append' => 'sm:hidden'
-                        ]
-                    ]"/>
+                    <x-mary-button icon="fas.plus" wire:navigate :$href />
 
-                    <x-ts-button icon="plus" :text="__('Adicionar')" wire:navigate :$href :personalize="[
-                        'wrapper.class' => [
-                            'append' => 'hidden sm:flex'
-                        ]
-                    ]"/>
+                    <x-mary-button icon="fas.plus" :text="__('Adicionar')" wire:navigate :$href 
                 @endif
 
                 @if(Illuminate\Support\Str::of($component . $event)->isNotEmpty())
-                    <x-ts-button icon="plus" wire:click="btnDispatch" :personalize="[
-                        'wrapper.class' => [
-                            'append' => 'sm:hidden'
-                        ]
-                    ]"/>
+                    <x-mary-button icon="fas.plus" wire:click="btnDispatch" />
 
-                    <x-ts-button icon="plus" :text="__('Adicionar')" wire:click="btnDispatch" :personalize="[
-                        'wrapper.class' => [
-                            'append' => 'hidden sm:flex'
-                        ]
-                    ]"/>
+                    <x-mary-button icon="fas.plus" :text="__('Adicionar')" wire:click="btnDispatch" />
                 @endif
             </div>
         HTML;

@@ -26,23 +26,28 @@ $logout = function (Logout $logout) {
         href="https://fonts.bunny.net/css?family=montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet" />
 
-    <link rel="shortcut icon" sizes="114x114" href="{{ Vite::asset('resources/images/logo.svg') }}">
+   <link rel="shortcut icon" sizes="114x114" href="{{ Vite::asset('resources/images/logo.svg') }}">
+
 
     @livewireStyles
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+<body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
 
 <body class="font-sans antialiased">
 
-    <x-mary-main full-width>
+     <x-mary-main  full-width>
 
-        <x-slot:sidebar drawer="main" collapsible class="bg-base-200">
+        <x-slot:sidebar drawer="main-drawer" collapsible class="bg-pg-primary-500 dark:bg-pg-primary-700 shadow-md text-pg-primary-50" collapse-text="Esconder">
 
-            <x-mary-menu active-bg-color="bg-primary" class="w-full flex flex-col space-y-2" activate-by-route>
+        
+
+           <x-mary-menu active-bg-color="bg-pg-primary-5000 dark:bg-pg-primary-6000" activate-by-route class='flex h-full gap-2 text-pg-primary-50'>
 
 
                 <x-mary-menu-item :title="__('Dashboard')" icon="ri.dashboard-fill" :link="route('dashboard')" />
+                <x-mary-menu-item :title="__('Agenda')" icon="ri.shield-user-fill" :link="route('eventos.index')" />
                 <x-mary-menu-item :title="__('Guardiões')" icon="ri.shield-user-fill" :link="route('guardiaos.index')" />
                 <x-mary-menu-item :title="__('Animais')" icon="fas.dog" :link="route('animals.index')" />
                 <x-mary-menu-item :title="__('Vacinas')" icon="tabler.vaccine" :link="route('vacinas.index')" />

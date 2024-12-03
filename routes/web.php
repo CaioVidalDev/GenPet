@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\EventoController;
 use App\Http\Controllers\GuardiaoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicoController;
@@ -35,6 +36,9 @@ Route::middleware(['auth', 'verified'])->resource('tratamentos', TratamentoContr
     ->except(['store', 'update', 'delete']);
 
 Route::middleware(['auth', 'verified'])->resource('servicos', ServicoController::class)
+    ->except(['store', 'update', 'delete']);
+
+Route::middleware(['auth', 'verified'])->resource('eventos', EventoController::class)
     ->except(['store', 'update', 'delete']);
 
 require __DIR__.'/auth.php';

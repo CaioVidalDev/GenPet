@@ -18,7 +18,7 @@
 
                 @if (session('animal-updated'))
                     <div id="alert-success" class="my-4">
-                        <x-mary-alert icon="o-check-circle" title="Animal atualizado com sucesso"
+                        <x-mary-alert icon="o-check-circle" title="Animal atualizado com sucesso!"
                             description="Os dados do animal foram atualizados com sucesso." class="alert-success" close />
                     </div>
                 @endif

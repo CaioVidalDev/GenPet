@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Animal;
+use App\Models\Evento;
 use App\Models\Guardiao;
 use App\Models\Servico;
 use App\Models\Tratamento;
@@ -35,6 +36,7 @@ class DatabaseSeeder extends Seeder
         Vacina::factory(30)->create();
         Tratamento::factory(30)->create();
         Servico::factory(30)->create();
+        Evento::factory(5)->create();
 
     }
 }
